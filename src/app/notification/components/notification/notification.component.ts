@@ -18,13 +18,12 @@ import { formatDistanceToNow } from 'date-fns';
     '[class.nv-notification--danger]': `notification().type === 'danger'`,
     '[class.nv-notification--unread]': `!notification().read`,
     '[class.nv-notification--read]': `notification().read`
-
   },
   encapsulation: ViewEncapsulation.None
 })
 export class NotificationComponent {
 
-  notification = input.required<Notification>()
+  notification = input.required<Notification>();
 
   getRelativeTime(): string {
     return formatDistanceToNow(this.notification().timestamp, { addSuffix: true });
