@@ -6,6 +6,7 @@ export interface App {
   name: string;
   color: string;
   apiKey: string;
+  enabled: boolean;
 }
 
 @Injectable({
@@ -52,19 +53,22 @@ export class AppService {
         id: 1,
         name: 'Slack',
         color: '#e11b61',
-        apiKey: 'nv_slack_' + this.generateRandomString(24)
+        apiKey: 'nv_slack_' + this.generateRandomString(24),
+        enabled: true,
       },
       {
         id: 2,
         name: 'Gmail',
         color: '#e6472c',
         apiKey: 'nv_gmail_' + this.generateRandomString(24)
+        enabled: true
       },
       {
         id: 3,
         name: 'ActivePieces',
         color: '#7c3fdb',
-        apiKey: 'nv_activepieces_' + this.generateRandomString(24)
+        apiKey: 'nv_activepieces_' + this.generateRandomString(24),
+        enabled: true
       }
     ]);
   }
