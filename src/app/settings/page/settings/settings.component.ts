@@ -51,7 +51,8 @@ export class SettingsComponent {
       const newApp: App = {
         name: formValue.name,
         color: formValue.color,
-        apiKey: this.generateApiKey()
+        apiKey: this.generateApiKey(),
+        enabled: true
       };
 
       this.appService.addApp(newApp).subscribe({
