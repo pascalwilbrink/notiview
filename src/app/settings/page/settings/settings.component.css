@@ -189,6 +189,16 @@
     transform: translateY(-2px);
 }
 
+.app-card--disabled {
+    opacity: 0.6;
+    background: #f8fafc;
+}
+
+.app-card--disabled:hover {
+    transform: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 .app-card__header {
     display: flex;
     justify-content: space-between;
@@ -223,6 +233,11 @@
     padding: 2px 8px;
     border-radius: 12px;
     font-weight: 500;
+}
+
+.app-status--disabled {
+    color: #6b7280;
+    background: #f3f4f6;
 }
 
 .app-actions {

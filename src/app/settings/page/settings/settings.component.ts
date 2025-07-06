@@ -81,6 +81,20 @@ export class SettingsComponent {
     }
   }
 
+  toggleAppEnabled(app: App) {
+    if (app.id) {
+      this.appService.updateApp(app.id, { enabled: !app.enabled }).subscribe({
+        next: (updatedApp) => {
+          if (updatedApp) {
+            this.apps.update(apps => 
+              apps.map(a => a.id === updatedApp.id ? updatedApp : a)
+            );
+          }
+        }
+      });
+    }
+  }
+
   deleteApp(app: App) {
     if (app.id && confirm(`Are you sure you want to delete "${app.name}"? This action cannot be undone.`)) {
       this.appService.deleteApp(app.id).subscribe({

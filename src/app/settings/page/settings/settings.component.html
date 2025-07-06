@@ -64,16 +64,21 @@
     
     <!-- Apps List -->
     <div class="apps-grid">
-      <div class="app-card" *ngFor="let app of apps()">
+      <div class="app-card" *ngFor="let app of apps()" [class.app-card--disabled]="!app.enabled">
         <div class="app-card__header">
           <div class="app-info">
             <div class="app-icon" [style.background-color]="app.color"></div>
             <div class="app-details">
               <h4 class="app-name">{{ app.name }}</h4>
-              <span class="app-status">Active</span>
+              <span class="app-status" [class.app-status--disabled]="!app.enabled">
+                {{ app.enabled ? 'Active' : 'Disabled' }}
+              </span>
             </div>
           </div>
           <div class="app-actions">
+            <button class="btn-icon" (click)="toggleAppEnabled(app)" [title]="app.enabled ? 'Disable App' : 'Enable App'">
+              <i class="material-symbols-outlined">{{ app.enabled ? 'toggle_on' : 'toggle_off' }}</i>
+            </button>
             <button class="btn-icon" (click)="toggleAppKey(app)" [title]="showAppKey[app.id!] ? 'Hide API Key' : 'Show API Key'">
               <i class="material-symbols-outlined">{{ showAppKey[app.id!] ? 'visibility_off' : 'visibility' }}</i>
             </button>

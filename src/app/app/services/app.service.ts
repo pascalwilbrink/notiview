@@ -39,6 +39,22 @@ export class AppService {
     return of(newApp);
   }
 
+  updateApp(id: number, updates: Partial<App>): Observable<App | null> {
+    const currentApps = this.apps$.value;
+    const appIndex = currentApps.findIndex(app => app.id === id);
+    
+    if (appIndex === -1) {
+      return of(null);
+    }
+
+    const updatedApp = { ...currentApps[appIndex], ...updates };
+    const updatedApps = [...currentApps];
+    updatedApps[appIndex] = updatedApp;
+    
+    this.apps$.next(updatedApps);
+    return of(updatedApp);
+  }
+
   deleteApp(id: number): Observable<void> {
     const currentApps = this.apps$.value;
     const updatedApps = currentApps.filter(app => app.id !== id);
