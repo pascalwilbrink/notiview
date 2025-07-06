@@ -1,7 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PageComponent } from '../../../common/components/page/page.component';
-import { SidenavComponent } from '../../../common/components/sidenav/sidenav.component';
 import { App, AppService } from '../../../app/services/app.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
@@ -12,7 +11,6 @@ import { NgFor, NgIf } from '@angular/common';
   imports: [
     RouterLink,
     PageComponent,
-    SidenavComponent,
     ReactiveFormsModule,
     NgFor,
     NgIf
@@ -22,7 +20,6 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class SettingsComponent {
   
-  sidenavOpen = signal<boolean>(true);
   apps = signal<App[]>([]);
   showCreateForm = false;
   showAppKey: { [key: number]: boolean } = {};
@@ -51,7 +48,7 @@ export class SettingsComponent {
   }
 
   onSidenavToggle() {
-    this.sidenavOpen.set(!this.sidenavOpen());
+    // No longer needed since we removed the sidebar
   }
 
   onCreateApp() {

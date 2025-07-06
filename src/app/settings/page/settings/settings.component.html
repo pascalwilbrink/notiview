@@ -1,30 +1,18 @@
 <nv-page [heading]="'Settings'" (sidenavToggle)="onSidenavToggle()">
-  <nv-sidenav [opened]="sidenavOpen()">
-    <div opened class="nav__wrapper">
-      <nav class="nav nav--main">
-        <a class="nav__item" routerLink="/">
-          <i class="material-symbols-outlined">arrow_back</i>
-          <span>Back to Notifications</span>
-        </a>
-      </nav>
-    </div>
-    <div closed>
-      <nav class="nav nav--closed">
-        <a class="nav__item" routerLink="/">
-          <i class="material-symbols-outlined">arrow_back</i>
-        </a>
-      </nav>
-    </div>
-  </nv-sidenav>
-  
   <main class="settings-content">
     <div class="settings-section">
       <div class="section-header">
         <h3>Connected Apps</h3>
-        <button class="btn btn--primary" (click)="showCreateForm = !showCreateForm">
-          <i class="material-symbols-outlined">add</i>
-          Add New App
-        </button>
+        <div class="header-actions">
+          <a class="btn btn--secondary" routerLink="/">
+            <i class="material-symbols-outlined">arrow_back</i>
+            <span>Back to Notifications</span>
+          </a>
+          <button class="btn btn--primary" (click)="showCreateForm = !showCreateForm">
+            <i class="material-symbols-outlined">add</i>
+            Add New App
+          </button>
+        </div>
       </div>
       
       <!-- Create App Form -->
