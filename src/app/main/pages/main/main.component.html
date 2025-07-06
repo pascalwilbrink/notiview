@@ -1,0 +1,41 @@
+
+<nv-sidenav [opened]="sidenavOpen()">
+    <div opened class="nav__wrapper">
+        <nav class="nav nav--main">
+            <span>Filter by App</span>
+            <a class="nav__item" (click)="deselectApp()" [class.nav__item--selected]="isSelected(null)">
+                <i class="material-symbols-outlined">
+                    notifications
+                </i>
+                <span>
+                    All Notifications
+                </span>
+            </a>
+            <a class="nav__item app" *ngFor="let app of apps()" (click)="selectApp(app)" [class.nav__item--selected]="isSelected(app)">
+                <span class="app__icon" [style.background]="app.color"></span>
+                <span>
+                    {{ app.name }}
+                </span>
+            </a>
+        </nav>
+        <nav class="nav nav--bottom">
+            <a class="nav__item" routerLink="/settings">
+                <i class="material-symbols-outlined">settings</i>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </div>
+    <div closed>
+        <nav class="nav nav--closed">
+            <a class="nav__item">
+                <i class="material-symbols-outlined">
+                    notifications
+                </i>
+            </a>
+        </nav>
+    </div>
+</nv-sidenav>
+<main class="main">
+    <nv-page [heading]="heading()!" (sidenavToggle)="onSidenavToggle()"></nv-page>
+</main>
+

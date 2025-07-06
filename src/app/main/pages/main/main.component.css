@@ -1,0 +1,63 @@
+:host {
+    display: flex;
+    height: 100%;
+}
+
+.main {
+    background: #f5f7f9;
+    flex: 1;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 8px;
+}
+
+.nav__item {
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.nav__item:hover {
+    background: #EAEAEA;
+    cursor: pointer;
+}
+
+.nav__item--selected {
+    background: #EAEAEA;
+}
+
+.app {
+    display: flex;
+    align-items: center;
+}
+
+.app__icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+}
+
+.nav--bottom {
+    justify-self: flex-end;
+    margin-bottom: 32px;
+}
+
+.nav__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.nav--main {
+    flex: 1;
+}
+
+.nav__item {
+    text-decoration: none;
+    color: #242424;
+}

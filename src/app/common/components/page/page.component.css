@@ -1,0 +1,65 @@
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.page {
+    display: block;
+    padding: 32px;
+}
+
+.page__heading {
+    display: flex;
+    gap: 16px;
+    padding: 0 16px;
+}
+
+.page__heading__title {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav__toggle {
+    border: none;
+    background: none;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidenav__toggle i {
+    font-size: 1.2em;
+
+}
+
+.sidenav__toggle:hover {
+    color: #FFFFFF;
+    border-radius: 7px;
+    background: #1e79e2;
+}
+
+.page__content {
+    display: flex;
+    height: 100%;
+}
+
+aside {
+    width: 240px;
+    background: #FAFAFA;
+    border-right: 1px solid #eef0f2;
+    height: 100%;
+}
+
+.main {
+    background: #f5f7f9;
+    flex: 1;
+}
+
+.divider {
+    margin: 8px 0;
+    border-bottom: 1px solid #DADADA;
+}

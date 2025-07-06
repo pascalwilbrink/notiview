@@ -1,0 +1,14 @@
+<div class="page">
+    <div class="page__heading">
+        <button class="sidenav__toggle" (click)="toggleSidenav()"> 
+            <i class="material-symbols-outlined">thumbnail_bar</i>
+        </button>
+        <h2 class="page__heading__title">
+            {{ heading() }}
+        </h2>
+    </div>
+    <div class="divider"></div>
+    <div class="page__content">
+        <ng-content></ng-content>
+    </div>
+</div>

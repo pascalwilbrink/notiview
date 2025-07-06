@@ -1,0 +1,6 @@
+<div *ngIf="opened()" class="nv-sidenav__inner">
+    <ng-content select="[opened]"></ng-content>
+</div>
+<div *ngIf="!opened()" class="nv-sidenav__inner">
+    <ng-content select="[closed]"></ng-content>
+</div>

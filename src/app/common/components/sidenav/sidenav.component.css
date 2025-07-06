@@ -1,0 +1,17 @@
+.nv-sidenav {
+    width: 60px;
+    background: #FAFAFA;
+    border-right: 1px solid #eef0f2;
+    height: 100%;
+    display: block;
+    transition: width cubic-bezier(0.23, 1, 0.320, 1) .38s;
+}
+
+.nv-sidenav--open {
+    width: 240px;
+    transition: width cubic-bezier(0.23, 1, 0.320, 1) .38s;
+}
+
+.nv-sidenav__inner {
+    height: 100%;
+}
