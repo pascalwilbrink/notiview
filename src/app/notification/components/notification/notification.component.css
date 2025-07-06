@@ -2,10 +2,11 @@
     display: block;
     width: 100%;   
     padding: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-bottom: 16px;
     transition: all .32s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-sizing: border-box;
+    position: relative;
 }
 
 .nv-notification:hover {
@@ -13,27 +14,68 @@
         0 3px 7px rgba(0, 0, 0, .09);
         transition: all .32s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .nv-notification--default {
     border: 1px solid #DADADA;
     background: #F8F8F8;
 }
 
-
 .nv-notification--success { 
     background: #effdf7;
+    border: 1px solid #d1fae5;
 }
 
 .nv-notification--info {
     background: #eef6ff;
-    border: 1px solid #e3e7ed;
+    border: 1px solid #dbeafe;
 }
 
 .nv-notification--warning {
     background: #fefce9;
+    border: 1px solid #fef3c7;
 }
 
 .nv-notification--danger {
     background: #fef2f1;
+    border: 1px solid #fecaca;
+}
+
+.nv-notification--unread {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1), 0 4px 12px rgba(59, 130, 246, 0.15);
+    position: relative;
+}
+
+.nv-notification--unread::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 4px 0 0 4px;
+}
+
+.nv-notification--unread:hover {
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), 0 8px 25px rgba(59, 130, 246, 0.2);
+    transform: translateY(-1px);
+}
+
+.nv-notification--unread .notification__title {
+    color: #1e40af;
+    font-weight: 700;
+}
+
+.nv-notification--unread .notification__content {
+    color: #374151;
+}
+
+.nv-notification--unread .notification__icon {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 .nv-notification--success .notification__icon {
@@ -51,10 +93,6 @@
 .nv-notification--danger .notification__icon {
     background: #fde1e1;
     color: #cf3c3c;
-}
-
-.nv-notification--unread {
-    border-left: 4px solid blue;
 }
 
 .notification {
@@ -76,6 +114,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.3;
+    color: #1f2937;
 }
 
 .notification__content {
@@ -96,6 +135,7 @@
     flex-direction: column;
     align-self: flex-start;
     margin-top: 2px;
+    transition: all 0.2s ease;
 }
 
 .notification__meta {
@@ -120,15 +160,6 @@
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.actions-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #64748b;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .actions-list {
@@ -213,6 +244,11 @@
     font-size: 12px;
     color: #94a3b8;
     font-weight: 500;
+}
+
+.nv-notification--unread .timestamp {
+    color: #64748b;
+    font-weight: 600;
 }
 
 @media (max-width: 480px) {
