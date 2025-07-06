@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PageComponent } from '../../../common/components/page/page.component';
 import { App, AppService } from '../../../app/services/app.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
@@ -10,7 +9,6 @@ import { NgFor, NgIf } from '@angular/common';
   standalone: true,
   imports: [
     RouterLink,
-    PageComponent,
     ReactiveFormsModule,
     NgFor,
     NgIf
@@ -45,10 +43,6 @@ export class SettingsComponent {
         });
       }
     });
-  }
-
-  onSidenavToggle() {
-    // No longer needed since we removed the sidebar
   }
 
   onCreateApp() {

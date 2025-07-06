@@ -1,7 +1,8 @@
 :host {
     display: block;
     background: #f5f7f9;
-    height: 100%;
+    height: 100vh;
+    width: 100%;
 }
 
 .settings-content {
@@ -18,10 +19,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .section-header h3 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.subsection-header {
+    margin-bottom: 24px;
+}
+
+.subsection-header h4 {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 600;
