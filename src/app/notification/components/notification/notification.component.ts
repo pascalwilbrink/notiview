@@ -1,10 +1,11 @@
 import { Component, input, ViewEncapsulation } from '@angular/core';
 import { Notification } from '../../services/notification.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'nv-notification',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.css',
   host: {
@@ -25,4 +26,3 @@ export class NotificationComponent {
   notification = input.required<Notification>()
 
 }
-

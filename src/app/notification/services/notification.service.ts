@@ -53,48 +53,83 @@ export class NotificationService {
     this.$noticiations.next([
       {
         id: 1,
-        title: 'New Notification',
-        body: 'This is a default notification',
+        title: 'New message in #general',
+        body: 'John Doe: Hey team, the new feature is ready for testing!',
         type: 'default',
-        read: false
+        read: false,
+        app: {
+          id: 1,
+          name: 'Slack',
+          color: '#e11b61',
+          apiKey: 'nv_slack_example',
+          enabled: true
+        }
       },
       {
         id: 2,
-        title: 'Notification with actions',
-        body: 'This notification has actions',
+        title: 'New email from Sarah Wilson',
+        body: 'Subject: Project Update - Please review the latest changes',
         type: 'success',
         read: false,
+        app: {
+          id: 2,
+          name: 'Gmail',
+          color: '#e6472c',
+          apiKey: 'nv_gmail_example',
+          enabled: true
+        },
         actions: [
           {
             type: 'app',
-            app: 'vscode'
+            app: 'gmail'
           },
           {
             type: 'browser',
-            url: 'https://google.com'
+            url: 'https://gmail.com'
           }
         ]
       },
       {
         id: 3,
-        title: 'Info Notification',
-        body: 'This notification has info',
+        title: 'Workflow completed successfully',
+        body: 'Your automation "Daily Report Generator" has finished running',
         type: 'info',
-        read: false
+        read: false,
+        app: {
+          id: 3,
+          name: 'ActivePieces',
+          color: '#7c3fdb',
+          apiKey: 'nv_activepieces_example',
+          enabled: true
+        }
       },
       {
         id: 4,
-        title: 'Warning Notification',
-        body: 'This is a warning notification',
+        title: 'System maintenance scheduled',
+        body: 'Scheduled maintenance will begin at 2:00 AM EST tomorrow',
         type: 'warning',
-        read: true
+        read: true,
+        app: {
+          id: 1,
+          name: 'Slack',
+          color: '#e11b61',
+          apiKey: 'nv_slack_example',
+          enabled: true
+        }
       },
       {
         id: 5,
-        title: 'Danger Notification',
-        body: 'This is an danger notification',
+        title: 'Failed to sync data',
+        body: 'Unable to connect to external API. Please check your configuration.',
         type: 'danger',
-        read: true
+        read: true,
+        app: {
+          id: 3,
+          name: 'ActivePieces',
+          color: '#7c3fdb',
+          apiKey: 'nv_activepieces_example',
+          enabled: true
+        }
       }
     ])
   }
