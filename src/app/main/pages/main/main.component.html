@@ -11,7 +11,7 @@
                     All Notifications
                 </span>
             </a>
-            <a class="nav__item app" *ngFor="let app of apps()" (click)="selectApp(app)" [class.nav__item--selected]="isSelected(app)">
+            <a class="nav__item app" *ngFor="let app of enabledApps()" (click)="selectApp(app)" [class.nav__item--selected]="isSelected(app)">
                 <span class="app__icon" [style.background]="app.color"></span>
                 <span>
                     {{ app.name }}
