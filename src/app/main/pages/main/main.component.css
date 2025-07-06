@@ -6,6 +6,8 @@
 .main {
     background: #f5f7f9;
     flex: 1;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .nav {
@@ -60,4 +62,9 @@
 .nav__item {
     text-decoration: none;
     color: #242424;
+}
+
+.notifications {
+    width: 100%;
+    padding: 32px;
 }

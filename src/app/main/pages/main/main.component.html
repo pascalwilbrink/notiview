@@ -36,6 +36,10 @@
     </div>
 </nv-sidenav>
 <main class="main">
-    <nv-page [heading]="heading()!" (sidenavToggle)="onSidenavToggle()"></nv-page>
+    <nv-page [heading]="heading()!" (sidenavToggle)="onSidenavToggle()">
+        <main class="notifications">
+            <nv-notification *ngFor="let notification of notifications()" [notification]="notification">
+            </nv-notification>
+        </main>
+    </nv-page>
 </main>
-

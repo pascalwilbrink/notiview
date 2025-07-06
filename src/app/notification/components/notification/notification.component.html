@@ -1,1 +1,11 @@
-<p>notification works!</p>
+<div class="notification">
+    <span class="notification__icon">
+        <i class="material-symbols-outlined">notifications</i>
+    </span>
+    <h2 class="notification__title">
+        {{ notification().title }}
+    </h2>
+    <p class="notification__content">
+        {{ notification().body }}
+    </p>
+</div>
