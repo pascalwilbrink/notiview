@@ -5,7 +5,7 @@ export interface App {
   id?: number;
   name: string;
   color: string;
-  apiKey?: string;
+  apiKey: string;
 }
 
 @Injectable({
