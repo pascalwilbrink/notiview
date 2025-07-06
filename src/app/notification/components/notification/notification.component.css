@@ -66,7 +66,7 @@
     grid-template-areas: 
         "icon title"
         "icon content"
-        "icon app"
+        "icon meta"
         "actions actions";
 }
 
@@ -98,9 +98,21 @@
     margin-top: 2px;
 }
 
-.notification__app {
-    grid-area: app;
+.notification__meta {
+    grid-area: meta;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 4px;
+    gap: 12px;
+}
+
+.notification__app {
+    flex-shrink: 0;
+}
+
+.notification__timestamp {
+    flex-shrink: 0;
 }
 
 .app-badge {
@@ -124,4 +136,18 @@
 
 .app-badge__name {
     line-height: 1;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .notification__meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
 }

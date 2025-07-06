@@ -1,6 +1,7 @@
 import { Component, input, ViewEncapsulation } from '@angular/core';
 import { Notification } from '../../services/notification.service';
 import { NgIf } from '@angular/common';
+import { formatDistanceToNow } from 'date-fns';
 
 @Component({
   selector: 'nv-notification',
@@ -25,4 +26,7 @@ export class NotificationComponent {
 
   notification = input.required<Notification>()
 
+  getRelativeTime(): string {
+    return formatDistanceToNow(this.notification().timestamp, { addSuffix: true });
+  }
 }

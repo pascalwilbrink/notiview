@@ -8,10 +8,15 @@
     <p class="notification__content">
         {{ notification().body }}
     </p>
-    <div class="notification__app" *ngIf="notification().app">
-        <span class="app-badge">
-            <span class="app-badge__icon" [style.background-color]="notification().app!.color"></span>
-            <span class="app-badge__name">{{ notification().app!.name }}</span>
-        </span>
+    <div class="notification__meta">
+        <div class="notification__app" *ngIf="notification().app">
+            <span class="app-badge">
+                <span class="app-badge__icon" [style.background-color]="notification().app!.color"></span>
+                <span class="app-badge__name">{{ notification().app!.name }}</span>
+            </span>
+        </div>
+        <div class="notification__timestamp">
+            <span class="timestamp">{{ getRelativeTime() }}</span>
+        </div>
     </div>
 </div>
