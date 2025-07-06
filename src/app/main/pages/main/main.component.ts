@@ -30,7 +30,7 @@ export class MainComponent {
 
   apps = signal<App[]>([]);
 
-  activeApps = computed(() => {
+  enabledApps = computed(() => {
     return this.apps().filter((app) => app.enabled);
   })
   
