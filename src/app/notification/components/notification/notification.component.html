@@ -19,4 +19,23 @@
             <span class="timestamp">{{ getRelativeTime() }}</span>
         </div>
     </div>
+    <div class="notification__actions" *ngIf="notification().actions && notification().actions.length > 0">
+        <div class="actions-label">Available Actions:</div>
+        <div class="actions-list">
+            <button 
+                *ngFor="let action of notification().actions" 
+                class="action-button"
+                [class.action-button--app]="action.type === 'app'"
+                [class.action-button--browser]="action.type === 'browser'"
+                (click)="executeAction(action)"
+            >
+                <i class="material-symbols-outlined">
+                    {{ action.type === 'app' ? 'launch' : 'open_in_new' }}
+                </i>
+                <span>
+                    {{ getActionLabel(action) }}
+                </span>
+            </button>
+        </div>
+    </div>
 </div>

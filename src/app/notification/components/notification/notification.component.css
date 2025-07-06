@@ -115,6 +115,77 @@
     flex-shrink: 0;
 }
 
+.notification__actions {
+    grid-area: actions;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.actions-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.actions-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: white;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.action-button:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-button--app {
+    border-color: #ddd6fe;
+    background: #faf5ff;
+    color: #7c3aed;
+}
+
+.action-button--app:hover {
+    background: #f3e8ff;
+    border-color: #c4b5fd;
+}
+
+.action-button--browser {
+    border-color: #dbeafe;
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.action-button--browser:hover {
+    background: #dbeafe;
+    border-color: #93c5fd;
+}
+
+.action-button i {
+    font-size: 14px;
+}
+
 .app-badge {
     display: inline-flex;
     align-items: center;
@@ -149,5 +220,13 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+    }
+    
+    .actions-list {
+        flex-direction: column;
+    }
+    
+    .action-button {
+        justify-content: flex-start;
     }
 }
