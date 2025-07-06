@@ -60,7 +60,7 @@ export class AppService {
         id: 2,
         name: 'Gmail',
         color: '#e6472c',
-        apiKey: 'nv_gmail_' + this.generateRandomString(24)
+        apiKey: 'nv_gmail_' + this.generateRandomString(24),
         enabled: true
       },
       {
