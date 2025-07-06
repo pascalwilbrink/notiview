@@ -20,7 +20,6 @@
         </div>
     </div>
     <div class="notification__actions" *ngIf="notification().actions?.length">
-        <div class="actions-label">Available Actions:</div>
         <div class="actions-list">
             <button 
                 *ngFor="let action of notification().actions" 
