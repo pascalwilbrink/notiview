@@ -30,6 +30,10 @@ export class MainComponent {
 
   apps = signal<App[]>([]);
 
+  activeApps = computed(() => {
+    return this.apps().filter((app) => app.enabled);
+  })
+  
   selectedApp = signal<App | null>(null);
 
   notifications = signal<Notification[]>([]);
