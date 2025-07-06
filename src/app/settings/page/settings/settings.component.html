@@ -1,1 +1,127 @@
-<a routerLink="/">Back</a>
+<nv-page [heading]="'Settings'" (sidenavToggle)="onSidenavToggle()">
+  <nv-sidenav [opened]="sidenavOpen()">
+    <div opened class="nav__wrapper">
+      <nav class="nav nav--main">
+        <a class="nav__item" routerLink="/">
+          <i class="material-symbols-outlined">arrow_back</i>
+          <span>Back to Notifications</span>
+        </a>
+      </nav>
+    </div>
+    <div closed>
+      <nav class="nav nav--closed">
+        <a class="nav__item" routerLink="/">
+          <i class="material-symbols-outlined">arrow_back</i>
+        </a>
+      </nav>
+    </div>
+  </nv-sidenav>
+  
+  <main class="settings-content">
+    <div class="settings-section">
+      <div class="section-header">
+        <h3>Connected Apps</h3>
+        <button class="btn btn--primary" (click)="showCreateForm = !showCreateForm">
+          <i class="material-symbols-outlined">add</i>
+          Add New App
+        </button>
+      </div>
+      
+      <!-- Create App Form -->
+      <div class="create-app-form" *ngIf="showCreateForm">
+        <div class="form-card">
+          <h4>Create New App</h4>
+          <form [formGroup]="createAppForm" (ngSubmit)="onCreateApp()">
+            <div class="form-group">
+              <label for="appName">App Name</label>
+              <input 
+                id="appName"
+                type="text" 
+                formControlName="name"
+                placeholder="Enter app name"
+                class="form-input"
+              >
+              <div class="error-message" *ngIf="createAppForm.get('name')?.invalid && createAppForm.get('name')?.touched">
+                App name is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="appColor">App Color</label>
+              <div class="color-picker-wrapper">
+                <input 
+                  id="appColor"
+                  type="color" 
+                  formControlName="color"
+                  class="color-picker"
+                >
+                <span class="color-preview" [style.background-color]="createAppForm.get('color')?.value"></span>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="button" class="btn btn--secondary" (click)="cancelCreate()">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn--primary" [disabled]="createAppForm.invalid">
+                Create App
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Apps List -->
+      <div class="apps-grid">
+        <div class="app-card" *ngFor="let app of apps()">
+          <div class="app-card__header">
+            <div class="app-info">
+              <div class="app-icon" [style.background-color]="app.color"></div>
+              <div class="app-details">
+                <h4 class="app-name">{{ app.name }}</h4>
+                <span class="app-status">Active</span>
+              </div>
+            </div>
+            <div class="app-actions">
+              <button class="btn-icon" (click)="toggleAppKey(app)" [title]="showAppKey[app.id!] ? 'Hide API Key' : 'Show API Key'">
+                <i class="material-symbols-outlined">{{ showAppKey[app.id!] ? 'visibility_off' : 'visibility' }}</i>
+              </button>
+              <button class="btn-icon btn-icon--danger" (click)="deleteApp(app)" title="Delete App">
+                <i class="material-symbols-outlined">delete</i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="app-key-section" *ngIf="showAppKey[app.id!]">
+            <label>API Key</label>
+            <div class="api-key-wrapper">
+              <input 
+                type="text" 
+                [value]="app.apiKey" 
+                readonly 
+                class="api-key-input"
+                #apiKeyInput
+              >
+              <button 
+                class="btn-copy" 
+                (click)="copyToClipboard(app.apiKey!, apiKeyInput)"
+                title="Copy to clipboard"
+              >
+                <i class="material-symbols-outlined">content_copy</i>
+              </button>
+            </div>
+            <small class="api-key-note">
+              Use this API key to authenticate requests from {{ app.name }}
+            </small>
+          </div>
+        </div>
+        
+        <div class="empty-state" *ngIf="apps().length === 0">
+          <i class="material-symbols-outlined">apps</i>
+          <h4>No Apps Connected</h4>
+          <p>Create your first app to start receiving notifications</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</nv-page>
